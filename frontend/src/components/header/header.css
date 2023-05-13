@@ -3,24 +3,30 @@
     border-bottom: 1px solid #e5e5e5;
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    width: 300px !important;
+    height: 1000px;
     z-index: 10;
+    padding: 20px;
+    overflow: hidden;
   }
   
   .header {
     display: flex;
-    justify-content: space-between;
-    height: 64px;
-    align-items: center;
+    flex-direction: column;
+    height: 900px;
+    margin-top: 50px;
+    width: 10%;
   }
   
   .header .search {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background: #efefef;
     border-radius: 8px;
     height: 30px;
+    align-items: center;
+    width: 250px;
   }
   
   .header .search > input {
@@ -35,9 +41,10 @@
   }
   
   .header .header-links {
+    margin-top: 20px;
     display: flex;
-    align-items: center;
-    column-gap: 20px;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .header .header-links .icon {
@@ -58,6 +65,7 @@
     margin-top: 8px;
     padding: 0;
     border-radius: 8px;
+    width: 280px;
   }
   
   .search-result {
@@ -81,6 +89,14 @@
     font-size: 12px;
     padding: 6px;
     font-weight: bold;
+  }
+
+  /* */
+  .link-flex {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    gap: 12px;
   }
   
   /* responsive */

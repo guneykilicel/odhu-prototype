@@ -1,5 +1,6 @@
 .post-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 4px solid rgba(129, 201, 243, 0.8);
+    border-radius: 20px;
 }
 
 .post-header {
@@ -19,7 +20,7 @@
 }
 .profile-username {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 17px;
 }
 .post-header-right button {
     background: #fafafa;
@@ -40,13 +41,14 @@
 }
 
 .post-like-count {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     margin: 6px 0;
 }
 
 .post-like-icon {
     color: #ccc;
+    margin-left: -40px;
 }
 
 .post-like-icon.active{
@@ -55,7 +57,7 @@
 
 .post-content .post-text {
     line-height: 1;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .post-time {

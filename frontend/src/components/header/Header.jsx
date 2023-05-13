@@ -48,7 +48,7 @@ export const Header = ({ handleOpen }) => {
     <div className="header-wrapper">
       <div className="container">
         <div className="header">
-          <Logo />
+          {/* <Logo /> */}
           <ClickAwayListener onClickAway={handleClickAway}>
             <Box sx={{ position: "relative" }}>
               <div className="search">
@@ -103,22 +103,27 @@ export const Header = ({ handleOpen }) => {
             </Box>
           </ClickAwayListener>
           <div className="header-links">
-            <Link to="/">
+            <Link to="/" className="link-flex">
               <HomeOutlinedIcon className="icon" />
+              Anasayfa
             </Link>
-            <Link to="/messenger">
+            <Link to="/messenger" className="link-flex">
               <ChatOutlinedIcon className="icon" />
+              Mesajlar
             </Link>
-            <AddBoxOutlinedIcon
-              className="icon" 
-              style={{ cursor: "pointer" }}
-              onClick={handleOpen}
-            />
+            <Link className="link-flex">
+              <AddBoxOutlinedIcon sx={{ marginTop: 1 }}
+                className="icon"
+                style={{ cursor: "pointer" }}
+                onClick={handleOpen}
+              />
+              Paylaş
+            </Link>
             <Link to={"/profile/" + user.username}>
               <Avatar
                 alt="Remy Sharp"
                 src={user.profilePicture && PF + user.profilePicture}
-                sx={{ width: 28, height: 28 }}
+                sx={{ width: 45, height: 45, marginTop: 62 }}
               />
             </Link>
           </div>

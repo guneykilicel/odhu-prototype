@@ -83,7 +83,7 @@ export const Post = ({ top, bottom, post }) => {
             <Link to={"/profile/" + user.username}>
               <Avatar
                 src={user.profilePicture && PF + user.profilePicture}
-                sx={{ width: 32, height: 32 }}
+                sx={{ width: 40, height: 40 }}
               />
             </Link>
             <Link to={"/profile/" + user.username} className="profile-username">
@@ -91,9 +91,9 @@ export const Post = ({ top, bottom, post }) => {
             </Link>
           </div>
           <div className="post-header-right">
-            <button onClick={handleClick}>
+            <Button onClick={handleClick}>
               <MoreHorizIcon />
-            </button>
+            </Button>
             <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
               <MenuItem onClick={handleClose}>
                 <IconButton color="error" onClick={deleteHandler}>
@@ -117,7 +117,7 @@ export const Post = ({ top, bottom, post }) => {
             </Button>
           </div>
           <span className="post-like-count">
-            {like} {like > 1 ? "likes" : "like"}
+            {like} {like > 1 ? "beğeniler" : "beğeni"}
           </span>
           <div className="post-content">
             <Link to={"/profile/" + user.username} className="profile-username">
