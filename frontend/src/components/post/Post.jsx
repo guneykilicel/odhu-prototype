@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Avatar, IconButton, Menu, MenuItem } from "@mui/material";
+import { Avatar, Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -110,11 +110,11 @@ export const Post = ({ top, bottom, post }) => {
       {bottom && (
         <div className="post-bottom">
           <div className="post-like">
-            <button onClick={likeHandler}>
+            <Button onClick={likeHandler}>
               <FavoriteIcon
                 className={`post-like-icon ${isLiked && "active"}`}
               />
-            </button>
+            </Button>
           </div>
           <span className="post-like-count">
             {like} {like > 1 ? "likes" : "like"}
