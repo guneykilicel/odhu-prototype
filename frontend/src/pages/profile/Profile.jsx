@@ -13,6 +13,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./profile.css";
+import DateTimePicker1 from "../../components/dateTimePicker/DateTimePicker";
 
 export const Profile = () => {
   const [user, setUser] = useState([]);
@@ -109,18 +110,18 @@ export const Profile = () => {
                 )}
 
                 {user._id === currentUser._id ? (
-                  <button>
+                  <Button>
                     <SettingsOutlinedIcon />
-                  </button>
+                  </Button>
                 ) : (
-                  <button onClick={createConversation}>
+                  <Button onClick={createConversation}>
                     <MailOutlineIcon />
-                  </button>
+                  </Button>
                 )}
                 {user._id === currentUser._id && (
-                  <button onClick={handleOutClick}>
+                  <Button onClick={handleOutClick}>
                     <LogoutOutlinedIcon color="error" />
-                  </button>
+                  </Button>
                 )}
               </div>
             </div>
@@ -145,24 +146,24 @@ export const Profile = () => {
           </div>
         </div>
         <div className="profile-body">
-          <div className="profile-nav-tabs">
-            <button className="active">
+          {/* <div className="profile-nav-tabs">
+            <Button className="active">
               <GridOnOutlinedIcon />
               <span>POSTS</span>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <VideoLibraryOutlinedIcon />
               <span>VIDEOS</span>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <BookmarkAddOutlinedIcon />
               <span>SAVE</span>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <AccountBoxOutlinedIcon />
               <span>TAGGED</span>
-            </button>
-          </div>
+            </Button>
+          </div> */}
           <div className="profile-post-grid">
             {posts.map((post) => (
               <div className="grid-post" key={post._id}>
@@ -176,6 +177,7 @@ export const Profile = () => {
           </div>
         </div>
       </div>
+      <DateTimePicker1 />
     </div>
   );
 };
