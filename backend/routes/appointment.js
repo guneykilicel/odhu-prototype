@@ -4,10 +4,10 @@ const Appointment = require("../models/Appointment");
 
 // POST /api/appointments endpoint'i, randevu kaydetmek için kullanılır
 router.post('/', (req, res) => {
-    const { doctorId, dateTime } = req.body;
+    const { doctorId, userId, dateTime } = req.body;
 
     // Yeni randevu oluştur
-    const newAppointment = new Appointment({ doctorId, dateTime });
+    const newAppointment = new Appointment({ doctorId, userId, dateTime });
 
     // Randevuyu kaydet
     newAppointment.save()
