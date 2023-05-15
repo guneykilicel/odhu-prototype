@@ -11,6 +11,7 @@ const userRoutes = require("./routes/users.js");
 const postRoutes = require("./routes/posts.js");
 const convRoutes = require("./routes/conversation.js");
 const messageRoutes = require("./routes/message.js");
+const appointmentRoutes = require("./routes/appointment.js");
 
 
 const testServer = async (bool) => {
@@ -65,6 +66,7 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/conversations", convRoutes);
 app.use("/message", messageRoutes);
+app.use("/appointments", appointmentRoutes);
 
 
 
