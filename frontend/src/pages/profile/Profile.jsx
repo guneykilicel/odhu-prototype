@@ -164,7 +164,9 @@ export const Profile = () => {
               <span>TAGGED</span>
             </Button>
           </div> */}
-          <div className="profile-post-grid">
+          <DateTimePicker1 />
+        <div className="profile-body">
+        <div className="profile-post-grid">
             {posts.map((post) => (
               <div className="grid-post" key={post._id}>
                 <Post post={post} />
@@ -177,7 +179,8 @@ export const Profile = () => {
           </div>
         </div>
       </div>
-      <DateTimePicker1 />
+        </div>
+      
     </div>
   );
 };

@@ -39,7 +39,7 @@ const RightBox = () => {
           <span>{user.fullName}</span>
         </div>
       </div>
-      <span className="friends-title">My Friends</span>
+      <span className="friends-title">Doktorlarım</span>
       <ul className="friends-list">
         {friends &&
           friends.map((friend) => (

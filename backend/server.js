@@ -69,69 +69,76 @@ app.use("/appointments", appointmentRoutes);
 
 
 
-const port = 5000;
-app.listen(port, () => {
+// --------------deployment--------------
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "frontend/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(`${__dirname1}/frontend/build/`));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running!");
+  });
+}
+// --------------deployment--------------
 
-    try {
-        connect();
-        // console.log("Server is running on port " + port);
-        testServer(true);
-    } catch (err) {
-        console.log(err);
-    }
+const port = process.env.PORT || 5000;
 
+const server = app.listen(port, () => {
+  connect();
+  console.log("Server is running on port ");
 });
 
-
 //socket
-const io = require("socket.io")(8900, {
-    pingTimeout: 60000,
-    cors: {
-        origin: "http://localhost:3000",
-    },
-})
+const io = require("socket.io")(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "https://instagram-clone-bg-yt.herokuapp.com",
+  },
+});
 
 let users = [];
 
 const addUser = (userId, socketId) => {
-    !users.some((user) => user.userId === userId) &&
-        users.push({
-            userId,
-            socketId,
-        });
+  !users.some((user) => user.userId === userId) &&
+    users.push({
+      userId,
+      socketId,
+    });
 };
 
 const removeUser = (socketId) => {
-    users = users.filter((user) => user.socketId !== socketId);
+  users = users.filter((user) => user.socketId !== socketId);
 };
 
 const getUser = (userId) => {
-    return users.find((user) => user.userId === userId);
+  return users.find((user) => user.userId === userId);
 };
 
 // socket connection
 io.on("connection", (socket) => {
-    console.log("a user connected.");
+  console.log("a user connected.");
 
-    //take userId and socketId from the client
-    socket.on("addUser", (userId) => {
-        addUser(userId, socket.id);
-        io.emit("getUsers", users);
+  //take userId and socketId from the client
+  socket.on("addUser", (userId) => {
+    addUser(userId, socket.id);
+    io.emit("getUsers", users);
 
-        //send and get message
-        socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-            const user = getUser(receiverId);
-            io.to(user.socketId).emit("getMessage", {
-                senderId,
-                text,
-            });
-        });
-
-        //when disconnect
-        socket.on("disconnect", () => {
-            console.log("a user disconnected!");
-            removeUser(socket.id);
-            io.emit("getUsers", users);
-        });
+    //send and get message
+    socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      const user = getUser(receiverId);
+      io.to(user.socketId).emit("getMessage", {
+        senderId,
+        text,
+      });
     });
-})
+
+    //when disconnect
+    socket.on("disconnect", () => {
+      console.log("a user disconnected!");
+      removeUser(socket.id);
+      io.emit("getUsers", users);
+    });
+  });
+});
