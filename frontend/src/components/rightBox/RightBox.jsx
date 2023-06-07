@@ -59,7 +59,7 @@ const RightBox = () => {
                 </div>
               </div>
               <div className="friend-item-right">
-                <Button
+                <button
                   component={Link}
                   to={"/profile/" + friend.username}
                   variant="contained"
@@ -67,7 +67,7 @@ const RightBox = () => {
                   size="small"
                 >
                   Profile Git
-                </Button>
+                </button>
               </div>
             </li>
           ))}

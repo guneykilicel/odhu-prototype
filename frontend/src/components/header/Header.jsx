@@ -51,11 +51,12 @@ export const Header = ({ handleOpen }) => {
           {/* <Logo /> */}
           <ClickAwayListener onClickAway={handleClickAway}>
             <Box sx={{ position: "relative" }}>
+              {/* <img className="logo-odhu" src={require("./odhu.png")} id="odhu-logo" /> */}
               <div className="search">
                 <SearchIcon className="search-icon" />
                 <input
                   type="text"
-                  placeholder="Search"
+                  placeholder="Ara"
                   onChange={handleSearch}
                   onClick={handleClick}
                 />
@@ -123,7 +124,7 @@ export const Header = ({ handleOpen }) => {
               <Avatar
                 alt="Remy Sharp"
                 src={user.profilePicture && PF + user.profilePicture}
-                sx={{ width: 45, height: 45, marginTop: 62 }}
+                sx={{ width: 45, height: 45, marginTop: 50 }}
               />
             </Link>
           </div>

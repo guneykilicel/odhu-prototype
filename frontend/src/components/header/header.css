@@ -26,7 +26,7 @@
     border-radius: 8px;
     height: 30px;
     align-items: center;
-    width: 250px;
+    width: 260px;
   }
   
   .header .search > input {
@@ -99,6 +99,13 @@
     gap: 12px;
   }
   
+  .logo-odhu{
+    width: 166px;
+    height: 75px;
+    margin-bottom: 50px;
+    margin-top: -50px;
+  }
+
   /* responsive */
   
   @media (max-width: 768px) {
