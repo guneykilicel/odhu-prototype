@@ -6,6 +6,7 @@ import { loginCall } from "../../apiCalls";
 import { Link, useNavigate } from "react-router-dom";
 import classNames from 'classnames';
 import './login.css';
+import { Logo } from "../../components/logo/Logo";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,6 +26,11 @@ export const Login = () => {
     navigate("/");
   };
 
+  const registerDoctor = (e) => {
+    e.preventDefault();
+    navigate("/register-doctor");
+  }
+
   return (
 
     <div>
@@ -33,30 +39,45 @@ export const Login = () => {
           <form action="#">
             <h1>Hesap Oluştur</h1>
             <p>Mail Adresini Kullanarak Kayıt Ol</p>
-            <input type="text" name="txt" placeholder="Ad" required="" />
-            <input type="text" surname="txt" placeholder="Soyad" required="" />
-            <input type="email" name="email" placeholder="Email" required="" />
-            <input type="password" name="pswd" placeholder="Şifre" required="" />
-            <button>Kayıt Ol</button>
+            <div style={{ width: "60%" }}>
+              <input type="text" name="txt" placeholder="Ad Soyad" required="" />
+              <input type="text" surname="txt" placeholder="Kullanıcı Adı" required="" />
+              <input type="email" name="email" placeholder="Email" required="" />
+              <input type="password" name="pswd" placeholder="Şifre" required="" />
+              <input type="password" name="pswd" placeholder="Şifre Onayı" required="" />
+              <input type="file" placeholder="Profil Fotoğrafı" required multiple />
+              <input type="text" surname="txt" placeholder="Biyografi" required="" />
+            </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <button>Kayıt Ol</button>
+              <button onClick={registerDoctor}>Doktor musun?</button>
+            </div>
           </form>
         </div>
         <div className="sign-in">
           <form action="#" onSubmit={handleSubmit}>
-            <h1>Giriş Yap</h1>
+            {/* <h1>ODHU</h1> */}
+            <div style={{ transform: "scale(1.3)" }}>
+              <Logo />
+            </div>
             <p>Önceden Oluşturduğunuz Hesaba Giriş Yapın</p>
-            <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="Email" required="" />
-            <input onChange={(e) => setPassword(e.target.value)} type="password" name="pswd" placeholder="Şifre" required="" />
-            <a href="#">Şifremi Unuttum</a>
-            <button className="button" onClick={() => setActive(false)} type="submit">
+            <div style={{ width: "60%" }}>
+              <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="Email" required="" />
+              <input onChange={(e) => setPassword(e.target.value)} type="password" name="pswd" placeholder="Şifre" required="" />
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <button className="button" onClick={() => setActive(false)} type="submit">
                 {isFetching ? (
                   <CircularProgress
                     style={{ width: "25px", height: "25px" }}
                     color="inherit"
                   />
                 ) : (
-                  "Login"
+                  "GİRİŞ YAP"
                 )}
               </button>
+              <a style={{textDecoration: "underline"}} href="#">Şifremi Unuttum</a>
+            </div>
           </form>
         </div>
         <div className="overlay-container">

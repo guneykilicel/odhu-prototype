@@ -104,9 +104,9 @@ export const Profile = () => {
                     {followed ? "Takipten Çıkar" : "Takip Et"}
                   </Button>
                 ) : (
-                  <Button variant="contained" size="small">
+                  <button variant="contained" size="small">
                     Düzenle
-                  </Button>
+                  </button>
                 )}
 
                 {user._id === currentUser._id ? (
@@ -128,15 +128,15 @@ export const Profile = () => {
             <div className="head-right-center">
               <div className="post-count">
                 <b>{posts.length}</b>
-                <span>posts</span>
+                <span>paylaşım</span>
               </div>
               <div className="follower-count">
                 <b>{user.followers && user.followers.length}</b>
-                <span>followers</span>
+                <span>takipçiler</span>
               </div>
               <div className="following-count">
                 <b>{user.followings && user.followings.length}</b>
-                <span>followings</span>
+                <span>takip edilenler</span>
               </div>
             </div>
             <div className="head-right-bottom">

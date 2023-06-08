@@ -36,10 +36,10 @@ const RightBox = () => {
         </Link>
         <div className="account-titles">
           <Link to={"/profile/" + user.username}>{user.username}</Link>
-          <span>{user.fullName}</span>
+          <span style={{color: "black"}}>{user.fullName}</span>
         </div>
       </div>
-      <span className="friends-title">Doktorlarım</span>
+      <span style={{color: "black"}} className="friends-title">Doktorlarım</span>
       <ul className="friends-list">
         {friends &&
           friends.map((friend) => (
@@ -55,7 +55,7 @@ const RightBox = () => {
                   <Link to={"/profile/" + friend.username}>
                     {friend.username}
                   </Link>
-                  <span>{friend.fullName}</span>
+                  <span style={{color: "black"}}>{friend.fullName}</span>
                 </div>
               </div>
               <div className="friend-item-right">

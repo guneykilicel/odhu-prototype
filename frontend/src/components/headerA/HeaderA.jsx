@@ -1,17 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import MarkunreadMailboxOutlinedIcon from '@mui/icons-material/MarkunreadMailboxOutlined';
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
+import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
 import { Avatar, Box } from "@mui/material";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { Link } from "react-router-dom";
 import { Logo } from "../logo/Logo";
 import axios from "axios";
-import "./header.css";
+import "./headerA.css";
 import { AuthContext } from "../../context/AuthContext";
 
-export const Header = ({ handleOpen }) => {
+export const HeaderA = ({ handleOpen }) => {
   const [users, setUsers] = useState("");
   const [search, setSearch] = useState("");
   const [userFilter, setUserFilter] = useState("");
@@ -48,24 +51,23 @@ export const Header = ({ handleOpen }) => {
     <div className="header-wrapper">
       <div className="container">
         <div className="header">
-          {/* <Logo /> */}
+          <Logo />
           <ClickAwayListener onClickAway={handleClickAway}>
             <Box sx={{ position: "relative" }}>
-              {/* <img className="logo-odhu" src={require("./odhu.png")} id="odhu-logo" /> */}
               <div className="search">
                 <SearchIcon className="search-icon" />
-                <input
+                <input style={{ height: "3rem" }}
                   type="text"
-                  placeholder="Ara"
+                  placeholder="Ara..."
                   onChange={handleSearch}
                   onClick={handleClick}
                 />
                 {open ? (
                   <div className="search-result-wrapper">
-                    <div className="search-result">
+                    <div className="search-result" >
                       {userFilter.length > 0 ? (
-                        userFilter.slice(0, 6).map((user) => (
-                          <Link
+                        userFilter.slice(0, 3).map((user) => (
+                          <Link 
                             to={"/profile/" + user.username}
                             className="search-result-link"
                             key={user._id}
@@ -75,7 +77,7 @@ export const Header = ({ handleOpen }) => {
                               src={
                                 user.profilePicture && PF + user.profilePicture
                               }
-                              sx={{ width: 28, height: 28 }}
+                              sx={{ width: 32, height: 32 }}
                             />
                             <div
                               style={{
@@ -85,8 +87,8 @@ export const Header = ({ handleOpen }) => {
                                 fontSize: "12px",
                               }}
                             >
-                              <b>{user.username}</b>
-                              <span>{user.fullName}</span>
+                              <b style={{fontSize: ".9rem"}}>{user.username}</b>
+                              <span style={{fontSize: ".8rem"}}>{user.fullName}</span>
                             </div>
                           </Link>
                         ))
@@ -104,27 +106,23 @@ export const Header = ({ handleOpen }) => {
             </Box>
           </ClickAwayListener>
           <div className="header-links">
-            <Link to="/" className="link-flex">
-              <HomeOutlinedIcon className="icon" />
-              Anasayfa
+            <Link to="/">
+              <CottageOutlinedIcon sx={{ width: 34, height: 34 }} className="icon" />
             </Link>
-            <Link to="/messenger" className="link-flex">
-              <ChatOutlinedIcon className="icon" />
-              Mesajlar
+            <Link to="/messenger">
+              <MarkunreadMailboxOutlinedIcon sx={{ width: 30, height: 30 }} className="icon" />
             </Link>
-            <Link className="link-flex">
-              <AddBoxOutlinedIcon sx={{ marginTop: 1 }}
-                className="icon"
-                style={{ cursor: "pointer" }}
-                onClick={handleOpen}
-              />
-              Paylaş
-            </Link>
+            <YardOutlinedIcon
+            sx={{ width: 30, height: 30 }}
+              className="icon" 
+              style={{ cursor: "pointer" }}
+              onClick={handleOpen}
+            />
             <Link to={"/profile/" + user.username}>
               <Avatar
                 alt="Remy Sharp"
                 src={user.profilePicture && PF + user.profilePicture}
-                sx={{ width: 45, height: 45, marginTop: 50 }}
+                sx={{ width: 33, height: 33 }}
               />
             </Link>
           </div>

@@ -1,14 +1,14 @@
 .modal-box {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    width: 500px;
-    height: auto;
+    width: 50rem;
+    height: 16rem;
     z-index: 999;
     outline: none;
-    border-radius: 10px;
+    border-radius: 1rem;
   }
   
   .modal-head {

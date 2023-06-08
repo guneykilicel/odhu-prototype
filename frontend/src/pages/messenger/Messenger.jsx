@@ -109,7 +109,7 @@ export const Messenger = () => {
           <input
             type="text"
             className="chat-menu-input"
-            placeholder="Search for Friends"
+            placeholder="Ara..."
           />
           {conversations.map((c) => (
             <div onClick={() => setCurrentChat(c)} key={c._id}>
@@ -137,30 +137,30 @@ export const Messenger = () => {
               <div className="chat-box-bottom">
                 <textarea
                   className="chat-message-input"
-                  placeholder="Write something..."
+                  placeholder="Bir şeyler yaz..."
                   onChange={(e) => setNewMessage(e.target.value)}
                   value={newMessage}
                 ></textarea>
-                <Button
+                <button
                   color="success"
                   variant="contained"
                   className="chat-submit-button"
                   type="submit"
                   onClick={handleSubmit}
                 >
-                  Send
-                </Button>
+                  Gönder
+                </button>
               </div>
             </>
           ) : (
-            <h1>Start a Chat.</h1>
+            <h1>Mesajlaşmaya başla!</h1>
           )}
         </div>
       </form>
 
       <div className="chat-online">
         <div className="chat-online-wrapper">
-          <h4>Online Users</h4>
+          <h4>Çevrimiçi Kullanıcılar</h4>
           <ChatOnline
             onlineUsers={onlineUsers}
             currentId={user._id}

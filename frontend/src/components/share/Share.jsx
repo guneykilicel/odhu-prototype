@@ -56,7 +56,7 @@ export const Share = ({ open, handleClose }) => {
       <Modal open={open} onClose={handleClose} className="modal">
         <Box className="modal-box">
           <div className="modal-head">
-            <Typography variant="span">Create New Post</Typography>
+            <Typography variant="span" style={{ fontSize: '20px', fontWeight: '550'}}>Yeni Paylaşım Oluştur!</Typography>
           </div>
           <form className="modal-body" onSubmit={submitHandler}>
             <div className="modal-body-top">
@@ -65,15 +65,15 @@ export const Share = ({ open, handleClose }) => {
                 src={user && PF + user.profilePicture}
                 sx={{ width: 46, height: 46 }}
               />
-              <input
+              <input style={{width:"26rem"}}
                 className="modal-text-input"
                 type="text"
-                placeholder="Write a post."
+                placeholder="Açıklama yaz."
                 ref={desc}
               />
-              <Button type="submit" variant="contained" height="10px">
+              <button type="submit" variant="contained" height="10px">
                 Paylaş
-              </Button>
+              </button>
             </div>
             <div className="modal-buttons">
               <label htmlFor="inputFile" style={{ cursor: "pointer" }}>
@@ -91,10 +91,6 @@ export const Share = ({ open, handleClose }) => {
               <button>
                 <VideoLibraryOutlinedIcon />
                 <b>Video</b>
-              </button>
-              <button>
-                <CalendarMonthOutlinedIcon />
-                <b>Etkinlik</b>
               </button>
               <button>
                 <ShortTextIcon />

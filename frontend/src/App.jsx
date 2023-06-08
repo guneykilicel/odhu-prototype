@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Header } from "./components/header/Header";
 import { Share } from "./components/share/Share";
 import { Login } from "./pages/login/Login";
 import { Register } from "./pages/register/Register";
@@ -10,6 +9,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "./context/AuthContext";
+import { HeaderA } from "./components/headerA/HeaderA";
+import RegisterDoctor from "./pages/register-doctor/RegisterDoctor";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ function App() {
       <Share open={open} handleClose={handleClose} />
       <ToastContainer />
       <Router>
-        {user && <Header handleOpen={handleOpen} />}
+        {user && <HeaderA handleOpen={handleOpen} />}
         <Routes>
           <Route path="/" element={user ? <Home /> : <Login />} />
           <Route
@@ -32,6 +33,7 @@ function App() {
           <Route path="/messenger" element={user ? <Messenger /> : <Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/register-doctor" element={<RegisterDoctor />} />
         </Routes>
       </Router>
     </div>
